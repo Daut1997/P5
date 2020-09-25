@@ -1,0 +1,29 @@
+{
+  "name": "orinoco-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.8",
+    "body-parser": "^1.18.3",
+    "bootstrap": "^4.4.1",
+    "express": "^4.16.4",
+    "gyp": "^0.5.0",
+    "https-localhost": "^4.6.2",
+    "jquery": "^3.4.1",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.10.3",
+    "mongoose-unique-validator": "^2.0.2",
+    "popper.js": "^1.16.1",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}

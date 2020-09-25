@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"
+        defer></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/style.css" type="text/css">
+    <script src="../scripts/displayLocalStorage.js" type="text/javascript" defer></script>
+    <title>Orinico E-Shop</title>
+</head>
+<body class="container-fluid">
+    <header class="row p-1 p-lg-3 bg-secondary">
+        <nav class="col navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../images/1576141243078_Orinoco logo.png" class="img-fluid" alt="Company Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarContent" class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="displayTotalItem" href="cart.html"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="row alert alert-success justify-content-center sticky-top" role="alert" id="alert" hidden>
+        Item Removed From Cart
+    </div>
+    <div class="row d-flex justify-content-center">
+        <img class="col-12 col-md-4" src="../images/7plQ.gif" alt="" id="loadingGif" hidden></img>
+    </div>
+    <div class="row" id="cartPage">
+        <div class="col-xl-3 mb-5 mb-lg-auto" id="cartContainer">
+            <div class="col-12 d-flex flex-row flex-xl-column text-center py-5" id="cart"></div>
+        </div>
+        <div class="col-12 col-xl-9 d-flex justify-content-center shadow-none mt-xl-3 mb-5" id="formContainer">
+            <form class=" text-center mt-md-5 mb-5 mb-md-auto" id="inputForm">
+                <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input type="text" class="form-control text-center shadow-none" id="firstname" name="Name"
+                        pattern="^([ \u00c0-\u01ffa-zA-Z'\-])+$">
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" class="form-control text-center shadow-none" id="lastname" name="Surname"
+                        pattern="^([ \u00c0-\u01ffa-zA-Z'\-])+$">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control text-center shadow-none" id="address" name="Address"
+                        pattern="^(?=.*[A-Za-z].*)(?=.*\d.*)[A-Za-z0-9, --/]+$">
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control text-center shadow-none" id="city" name="City"
+                        pattern="^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$">
+                </div>
+                <div class="form-group">
+                    <label for="email">E-Mail</label>
+                    <input type="text" class="form-control text-center shadow-none" id="email" name="E-mail"
+                        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$">
+                </div>
+                <button type="submit" id="submitOrder" class="btn btn-secondary text-light mt-3 mb-1" hidden>Submit
+                    Order</button>
+            </form>
+        </div>
+    </div>
+    <footer class="row bg-secondary py-1" id="footerCart">
+        <nav class="col navbar navbar-expand-md navbar-dark justify-content-center" id="contact">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link mx-5" href="tel:+0107564173867">Tel: 07564173867</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-5" href="mailto: orinoco@gmail.com">E-mail: orinoco@gmail.com</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link mx-5" href="index.html">Address:<br>85 West Bridle StreetHartsville, SC 29550</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>
