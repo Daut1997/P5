@@ -106,34 +106,41 @@ if (navigator.onLine) {
         })
       }
 
+      
       // create a figurecaption containing the button to add the item to the cart:
-      let addToCartButton = document.createElement('button')
-      addToCartButton.type = 'button'
-      addToCartButton.setAttribute(
-        'class',
-        'btn btn-secondary text-light mt-5 mb-5'
-      )
-      itemDetails.appendChild(addToCartButton)
-      addToCartButton.textContent = 'Add To Cart'
-      addToCartButton.addEventListener('click', () => {
-        // remove hidden attribute to the message that show that the item has been added to the cart:
-        alertMessage.removeAttribute('hidden')
-        // after 1000ms the message 'Item Added To Cart' disappear:
-        setTimeout(() => {
-          alertMessage.setAttribute('hidden', 'true')
-        }, 1000)
-        totalItemInCart()
-        addItemToCart()
-        totalCost()
-        // set the quantity showed in the basket equal to the value of the key 'totalitemincart' in the LocalStorage:
-        document.getElementById('displayTotalItem').textContent =
-          'Cart' + ' ' + '(' + localStorage.getItem('totalItemInCart') + ')'
-        // when the button to add item to the cart is pressed, the colors dropdown and the menu to choose the quantity get resetted:
-        colorDrop.textContent = response.colors[0]
-        item.quantity = 1
-        item.color = response.colors[0]
-        quantityToAdd.textContent = 1
-      })
+      const addToCartButton = () => { 
+        el = document.createElement('button')
+        el.type = 'button'
+        el.setAttribute(
+          'class',
+          'btn btn-secondary text-light mt-5 mb-5'
+        )
+        el.textContent = 'Add To Cart'
+        el.addEventListener('click', () => {
+          // remove hidden attribute to the message that show that the item has been added to the cart:
+          alertMessage.removeAttribute('hidden')
+          // after 1000ms the message 'Item Added To Cart' disappear:
+          setTimeout(() => {
+            alertMessage.setAttribute('hidden', 'true')
+          }, 1000)
+          totalItemInCart()
+          addItemToCart()
+          totalCost()
+          // set the quantity showed in the basket equal to the value of the key 'totalitemincart' in the LocalStorage:
+          document.getElementById('displayTotalItem').textContent =
+            'Cart' + ' ' + '(' + localStorage.getItem('totalItemInCart') + ')'
+          // when the button to add item to the cart is pressed, the colors dropdown and the menu to choose the quantity get resetted:
+          colorDrop.textContent = response.colors[0]
+          item.quantity = 1
+          item.color = response.colors[0]
+          quantityToAdd.textContent = 1
+        })
+
+        return el
+      }
+
+      itemDetails.appendChild(addToCartButton())
+
 
       // if the key 'totalitemincart' in localstorage is not set the basket show 0 as item in in cart otherwise show the value of the key 'totalitemincart' in the LocalStorage:
       const totalItemInCart = () => {
